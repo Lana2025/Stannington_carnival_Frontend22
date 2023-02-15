@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
+import {Container , Row, Col} from 'react-bootstrap'  
+// import 'bootstrap/dist/css/bootstrap.css';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import {
@@ -335,65 +337,62 @@ const Dashboard = (props) => {
     const index = props.index;
 
     return (
-      <div key={index}>
-        <Card className="card" key={item._id}>
-          <Card.Body id={item._id}>
-            <div
+   
+      
+        
+        <div
               className="stall-holder-details"
               style={{
-                display: props.role === "StallHolder" ? "none" : "inline",
+                display: props.role === "StallHolder" ? "none" : "contents",
               }}
-            >
-              <Card.Title className="creator-data">
-                Stall Holder Details
-              </Card.Title>
-              <div className="data-wrap">
-                <div className="data-name-wrap">
-                  <p className="lable text-muted">
-                    First name: <span> {item.firstName}</span>
+            >      
+      <Row  className="line" key={item._id}>
+        <Col sm={1}>
+            <p className="lable text-muted">
+                     <span> {item.firstName}</span>
                   </p>
-                  <p className="lable text-muted">
-                    Last name: <span> {item.lastName}</span>
-                  </p>
-                </div>
-                <div className="data-name-wrap">
-                  <p className="lable text-muted">
-                    Email: <span> {item.email}</span>
-                  </p>
-                  <p className="lable text-muted">
-                    Mobile: <span> {item.mobileNumber}</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <Card.Title className="booking-data">Booking Details</Card.Title>
-            <p
+      </Col>
+        <Col  sm={1}>
+           <p className="lable text-muted">
+                   <span> {item.lastName}</span>
+                  </p>         
+      </Col>
+      <Col  sm={2}>
+           <p className="lable text-muted">
+                   <span> {item.email}</span>
+                  </p>         
+      </Col>
+      <Col  sm={1}>
+           <p className="lable text-muted">
+                   <span> {item.mobileNumber}</span>
+                  </p>         
+      </Col>
+      <Col  sm={1}>
+      <p
               className="lable"
               style={{ backgroundColor: statusColor(item.bstatus) }}
             >
-              <span className="bookingText">Booking status:</span>
+              
               <span id="bstatus" className="description">
                 {" "}
                 {item.bstatus}
               </span>
-            </p>
-            <p className="lable text-muted">
-              Pitch number:
-              <span className="description"> {item.pitch}</span>
-            </p>
-            <p className="lable text-muted">
-              Business/charity name:
-              <span className="description"> {item.businessName}</span>
-            </p>
-            <p className="lable text-muted">
-              Type of stall:
-              <span className="description"> {item.stallType}</span>
-            </p>
-            <p className="lable text-muted">
-              Additional comments:
-              <span className="description"> {item.comments}</span>
-            </p>
-            <div className="action-bar">
+            </p>        
+      </Col>
+      <Col  sm={1}>
+      <span className="description"> {item.pitch}</span>        
+      </Col>
+      <Col  sm={1}>
+      <span className="description">{item.businessName}</span>        
+      </Col>
+      <Col  sm={1}>
+      <span className="description">  {item.stallType}</span>        
+      </Col>
+      <Col  sm={1}>
+      <span className="description">  {item.comments}</span>        
+      </Col>
+      <Col  sm={2}>
+      
               <button
                 style={{
                   display:
@@ -458,10 +457,13 @@ const Dashboard = (props) => {
               >
                 <FaTrashAlt />
               </button>
-            </div>
-          </Card.Body>
-        </Card>
+                    
+      </Col>
+      </Row>
       </div>
+      
+        
+      
     );
   };
 
@@ -493,6 +495,47 @@ const Dashboard = (props) => {
         <div className="stall-holder-details">
           <StallHolderDetails stallholder={stallholder} />
           <h2 className="subtitle dashboard">Your bookings</h2>
+          
+          <Row  className="line">
+      <Col sm={6}>
+         Stall Holder Details
+    </Col>
+      <Col  sm={6}>
+        Booking Details          
+    </Col>
+    </Row>
+    <Row  className="line">
+      <Col sm={1}>
+         First name:
+    </Col>
+      <Col  sm={1}>
+        Last name:         
+    </Col>
+    <Col  sm={2}>
+        Email:         
+    </Col>
+    <Col  sm={1}>
+        Mobile:         
+    </Col>
+    <Col  sm={1}>
+    Booking status:         
+    </Col>
+    <Col  sm={1}>
+    Pitch number:         
+    </Col>
+    <Col  sm={1}>
+    Business/ charity name:         
+    </Col>
+    <Col  sm={1}>
+    Type of stall:         
+    </Col>
+    <Col  sm={1}>
+    Additional comments:          
+    </Col>
+    <Col  sm={2}>
+    Edit:          
+    </Col>
+    </Row>
         </div>
       ) : (
         <>
