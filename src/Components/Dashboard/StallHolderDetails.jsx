@@ -8,20 +8,16 @@ const StallHolderDetails = (props) => {
       <div className="data-wrap">
         <div className="data-name-wrap">
           <p className="lable text-muted">
-            First name: <span> {props.stallholder?.firstName}</span>
+            <span> {props.stallholder?.firstName}</span>
+            <span> {props.stallholder?.lastName}</span>
           </p>
-          <p className="lable text-muted">
-            Last name: <span> {props.stallholder?.lastName}</span>
-          </p>
-        </div>
-        <div className="data-name-wrap">
           <p className="lable text-muted">
             Email: <span> {props.stallholder?.email}</span>
           </p>
           <p className="lable text-muted">
             Mobile: <span> {props.stallholder?.mobileNumber}</span>
-          </p>
-        </div>
+          </p>         
+        </div>        
       </div>
     </div>
   );
